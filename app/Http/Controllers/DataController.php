@@ -11,14 +11,16 @@ class DataController extends Controller
 {
     public function index()
     {
-        $kriteria = Kriteria::orderBy('id', 'DESC')->get();
-        $alternatif = Alternatif::orderBy('id', 'DESC')->get();
-        $data = AlternatifKriteriaValue::with('alternatif', 'kriteria')->get();
+        return view('data.index');
+    }
 
+    public function indexkriteria()
+    {
+        $kriteria = Kriteria::orderBy('id', 'DESC')->get();
         $allKriteria = Kriteria::all();
         $totalBobot = $allKriteria->sum('bobot');
 
-        return view('data.index', compact('kriteria', 'alternatif', 'data', 'allKriteria', 'totalBobot'));
+        return view('data.kriteria.index', compact('kriteria', 'totalBobot'));
     }
 
     public function createkriteria()
@@ -80,6 +82,13 @@ class DataController extends Controller
         return redirect()->route('data')->with(['success' => 'Data Berhasil di Hapus!']);
     }
 
+    public function indexalternatif()
+    {
+        $alternatif = Alternatif::orderBy('id', 'DESC')->get();
+
+        return view('data.alternatif.index', compact('alternatif'));
+    }
+
     public function createalternatif()
     {
         return view('data.alternatif.create');
@@ -135,29 +144,62 @@ class DataController extends Controller
         return redirect()->route('data')->with(['success' => 'Data Berhasil di Hapus!']);
     }
 
+    public function indexdata()
+    {
+        $data = AlternatifKriteriaValue::all();
+        $alternatif = Alternatif::all();
+        $kriteria = Kriteria::all();
+
+        return view('data.data.index', compact('data', 'alternatif', 'kriteria'));
+    }
+
     public function createdata()
     {
-        $alternatifData = Alternatif::orderBy('id', 'DESC')->get();
-        $kriteriaData = Kriteria::orderBy('id', 'DESC')->get();
-        return view('data.data.create', compact('alternatifData', 'kriteriaData'));
+        $data = AlternatifKriteriaValue::all();
+        $alternatif = Alternatif::all();
+        $kriteria = Kriteria::all();
+        // $alternatifData = Alternatif::orderBy('id', 'DESC')->get();
+        // $kriteriaData = Kriteria::orderBy('id', 'DESC')->get();
+        return view('data.data.create', compact('data', 'alternatif', 'kriteria'));
     }
 
     public function storedata(Request $request)
     {
+        // dd($request->all());
 
-        $request->validate([
-            'kriteria_id' => 'required',
-            'alternatif_id' => 'required',
-            'value' => 'required',
-        ]);
+        $data = $request->input('data');
 
-        AlternatifKriteriaValue::create([
-            'alternatif_id' => $request->alternatif_id,
-            'kriteria_id' => $request->kriteria_id,
-            'value' => $request->value,
-        ]);
+        foreach ($data as $idAlternatif => $kriteriaData) {
+            foreach ($kriteriaData as $idKriteria => $rowData) {
+                $value = $rowData['value'];
+                $idAlternatif = $rowData['id_alternatif'];
+                $idKriteria = $rowData['id_kriteria'];
 
-        return redirect()->route('data')->with(['success' => 'Data berhasil disimpan!']);
+                AlternatifKriteriaValue::where('alternatif_id', $idAlternatif)
+                    ->where('kriteria_id', $idKriteria)
+                    ->delete();
+
+                AlternatifKriteriaValue::create([
+                    'alternatif_id' => $idAlternatif,
+                    'kriteria_id' => $idKriteria,
+                    'value' => $value,
+                ]);
+            }
+        }
+
+        // $request->validate([
+        //     'kriteria_id' => 'required',
+        //     'alternatif_id' => 'required',
+        //     'value' => 'required',
+        // ]);
+
+        // AlternatifKriteriaValue::create([
+        //     'alternatif_id' => $request->alternatif_id,
+        //     'kriteria_id' => $request->kriteria_id,
+        //     'value' => $request->value,
+        // ]);
+
+        return redirect()->route('data.value')->with(['success' => 'Data berhasil disimpan!']);
     }
 
     public function editdata(string $id)

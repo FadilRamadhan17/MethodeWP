@@ -166,7 +166,8 @@ class MethodeWpController extends Controller
             if ($alternatif) {
                 $ranking[] = [
                     'rank' => $rank,
-                    'alternatif_name' => $alternatif->keterangan,
+                    'alternatif_keterangan' => $alternatif->keterangan,
+                    'alternatif_name' => $alternatif->nama,
                     'final_value' => $finalValue,
                 ];
             }

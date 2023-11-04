@@ -8,10 +8,6 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                {{-- @foreach ($ranking as $rankedItem)
-                    <p>Peringkat {{ $rankedItem['rank'] }}: Alternatif {{ $rankedItem['alternatif_id'] }} dengan nilai
-                        {{ $rankedItem['final_value'] }}</p>
-                @endforeach --}}
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -19,7 +15,10 @@
                                 No
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Alternatif
+                                Alternatif Id
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Alternatif Name
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Vektor V
@@ -38,6 +37,9 @@
                                 </th>
                                 <td class="px-6 py-4">
                                     {{ $rankedItem['alternatif_name'] }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $rankedItem['alternatif_keterangan'] }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $rankedItem['final_value'] }}
