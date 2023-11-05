@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
     <div class="container">
-        <div class="my-10 max-w-full">
+        <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-10">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-7">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 text-gray-900">
-                        <p class="bg-gray-600 rounded-md text-white p-3 text-center">Berikut data Vektor S</p>
+                        <p class="bg-gray-800 rounded-md text-white p-3 text-center">Berikut data Vektor S</p>
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 my-6">
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -44,7 +44,7 @@
                         </table>
                     </div>
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 text-gray-900">
-                        <p class="bg-gray-600 rounded-md text-white p-3 mb-5 text-center">Berikut data Vektor V</p>
+                        <p class="bg-gray-800 rounded-md text-white p-3 mb-5 text-center">Berikut data Vektor V</p>
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

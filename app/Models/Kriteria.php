@@ -18,6 +18,6 @@ class Kriteria extends Model
 
     public function alternatif()
     {
-        return $this->belongsToMany(Alternative::class)->withPivot('value'); // Jika Anda ingin mengambil nilai dari tabel pivot
+        return $this->belongsToMany(Alternatif::class)->withPivot('value'); // Jika Anda ingin mengambil nilai dari tabel pivot
     }
 }

@@ -9,16 +9,26 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <ul class="mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0">
                 <li class="flex-auto text-center">
+                    @php
+                        $active = true; // Atau sesuaikan dengan logika Anda untuk menentukan apakah tautan saat ini aktif
+                    @endphp
                     <a href="{{ route('kriteria') }}"
-                        class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400">Kriteria</a>
+                        class="inline-flex items-center px-1 py-5 text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out {{ $active ? 'border-b-2 border-indigo-400' : 'border-b-2 border-transparent' }}">
+                        Kriteria
+                    </a>
                 </li>
+
                 <li class="flex-auto text-center">
                     <a href="{{ route('altenatif') }}"
-                        class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400">Alternatif</a>
+                        class="inline-flex items-center px-1 py-5 text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                        Alternatif
+                    </a>
                 </li>
                 <li class="flex-auto text-center">
                     <a href="{{ route('data.value') }}"
-                        class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400">Data</a>
+                        class="inline-flex items-center px-1 py-5 text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                        Data
+                    </a>
                 </li>
             </ul>
 
