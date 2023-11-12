@@ -44,7 +44,7 @@
                                         {{ $rankedItem['alternatif_keterangan'] }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $rankedItem['final_value'] }}
+                                        {{ number_format($rankedItem['final_value'], 4) }}
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $rankedItem['rank'] }}

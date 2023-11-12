@@ -36,7 +36,7 @@
                                             {{ $a->nama }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $weightedValues[$a->id] }}
+                                            {{ number_format($weightedValues[$a->id], 4) }}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -71,7 +71,7 @@
                                             {{ $a->nama }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $finalValues[$a->id] }}
+                                            {{ number_format($finalValues[$a->id], 4) }}
                                         </td>
                                     </tr>
                                 @endforeach

@@ -47,10 +47,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/data/value', [DataController::class, 'indexdata'])->name('data.value');
     Route::get('/data/value/create', [DataController::class, 'createdata'])->name('data.create');
     Route::post('/data/value', [DataController::class, 'storedata'])->name('data.store');
-    Route::get('/data/value/{id}/edit', [DataController::class, 'editdata'])->name('data.edit');
-    Route::put('/data/value/{id}', [DataController::class, 'updatedata'])->name('data.update');
-    Route::delete('/data/value/{id}', [DataController::class, 'destroydata'])->name('data.destroy');
-
 
     Route::get('/methodewp', [MethodeWpController::class, 'methodewp'])->name('methodewp');
     Route::get('/methodewp/generate', [MethodeWpController::class, 'methodewp'])->name('methodewp.generate');
