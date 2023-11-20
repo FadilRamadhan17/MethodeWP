@@ -72,7 +72,10 @@
                                         </td>
                                         @foreach ($kriteria as $k)
                                             <td class="px-6 py-4">
-                                                {{ $data->where('alternatif_id', $a->id)->where('kriteria_id', $k->id)->first()->value }}
+                                                @if ($data->isNotEmpty())
+                                                    {{ $data->where('alternatif_id', $a->id)->where('kriteria_id', $k->id)->first()->value }}
+                                                @else
+                                                @endif
                                             </td>
                                         @endforeach
                                     </tr>

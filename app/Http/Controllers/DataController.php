@@ -48,7 +48,7 @@ class DataController extends Controller
             AlternatifKriteriaValue::truncate();
         }
 
-        return redirect()->route('data')->with(['success' => 'Data berhasil disimpan!']);
+        return redirect()->route('kriteria')->with(['success' => 'Data berhasil disimpan!']);
     }
 
     public function editkriteria(string $id)
@@ -78,7 +78,7 @@ class DataController extends Controller
             AlternatifKriteriaValue::truncate();
         }
 
-        return redirect()->route('data')->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('kriteria')->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
     public function destroykriteria(string $id)
@@ -91,7 +91,7 @@ class DataController extends Controller
             AlternatifKriteriaValue::truncate();
         }
 
-        return redirect()->route('data')->with(['success' => 'Data Berhasil di Hapus!']);
+        return redirect()->route('kriteria')->with(['success' => 'Data Berhasil di Hapus!']);
     }
 
     public function indexalternatif()
@@ -124,7 +124,7 @@ class DataController extends Controller
             AlternatifKriteriaValue::truncate();
         }
 
-        return redirect()->route('data')->with(['success' => 'Data berhasil disimpan!']);
+        return redirect()->route('altenatif')->with(['success' => 'Data berhasil disimpan!']);
     }
 
     public function editalternatif(string $id)
@@ -152,7 +152,7 @@ class DataController extends Controller
             AlternatifKriteriaValue::truncate();
         }
 
-        return redirect()->route('data')->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('altenatif')->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
     public function destroyalternatif(string $id)
@@ -165,7 +165,7 @@ class DataController extends Controller
             AlternatifKriteriaValue::truncate();
         }
 
-        return redirect()->route('data')->with(['success' => 'Data Berhasil di Hapus!']);
+        return redirect()->route('altenatif')->with(['success' => 'Data Berhasil di Hapus!']);
     }
 
     public function indexdata()
